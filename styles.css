@@ -18,3 +18,13 @@ h1, h2, h3, p { margin-top: 0; } h1, h2, h3 { letter-spacing: -.055em; } h1 { fo
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }.reveal.visible { opacity: 1; transform: translateY(0); } @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } } @keyframes slide { to { transform: translateX(-30%); } }
 @media (max-width: 800px) { .site-header { width: min(100% - 32px, 1280px); height: 70px; }.site-header nav { display: none; }.header-link { font-size: 9px; }.section-shell { width: min(100% - 32px, 1120px); }.hero { grid-template-columns: 1fr; padding: 64px 0 88px; gap: 52px; }.signal-panel { min-height: 390px; }.proof-band { grid-template-columns: 1fr 1fr; padding: 30px 16px; gap: 28px 15px; }.work, .projects, .impact, .experience, .toolkit { padding-top: 100px; }.focus-grid, .project-list { grid-template-columns: 1fr; }.focus-card + .focus-card, .project-secondary + .project-secondary { border-left: 1px solid var(--line); border-top: 0; }.project-main { grid-column: auto; grid-template-columns: 1fr; gap: 24px; }.project-visual { min-height: 220px; }.impact { grid-template-columns: 1fr; gap: 35px; }.impact-sticky { position: static; }.timeline-item { grid-template-columns: 1fr; gap: 15px; }.section-heading { align-items: start; flex-direction: column; }.section-heading > a { margin: -10px 0 25px; }.contact-card { margin-top: 100px; }.contact-links { margin-top: 50px; } footer { width: min(100% - 32px, 1280px); }.panel-footer { display: none; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+/* The architecture callout balances the four platform focus areas without turning the portfolio into a skills list. */
+.focus-grid { grid-template-columns: repeat(2, 1fr); }
+.focus-card { min-height: 270px; }
+.focus-card:nth-child(even) { border-left: 0; }
+.focus-card:nth-child(n + 3) { border-top: 0; }
+.architecture-note { max-width: 700px; margin: 48px 0 0 auto; padding: 0 0 0 84px; border-left: 1px solid var(--ink); }
+.architecture-note > p:nth-child(2) { font-size: clamp(20px, 2.4vw, 30px); line-height: 1.22; letter-spacing: -.04em; margin-bottom: 21px; }
+.architecture-note > span { color: #1e6654; font: 500 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+@media (max-width: 800px) { .focus-card:nth-child(even) { border-left: 1px solid var(--line); } .architecture-note { margin-top: 36px; padding-left: 28px; } }
