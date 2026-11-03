@@ -96,6 +96,54 @@
             <div class="project-content"><p class="project-kicker">CLOUD / EVENT-DRIVEN SERVICES</p><h3>AWS Serverless Order Pipeline</h3><p>An event-driven Python backend demonstrating maintainable service boundaries, payload validation, and asynchronous workflow design.</p><div class="stack"><span>AWS</span><span>Lambda</span><span>Python</span><span>SAM</span></div></div><span class="project-arrow">↗</span>
           </a>
         </div>
+        <div class="case-study-heading reveal">
+          <p class="eyebrow"><span></span> Build notes</p>
+          <p>Each project is framed as an engineering case study: the problem, the system boundary, and the proof that the design behaves as intended.</p>
+        </div>
+        <div class="case-study-list">
+          <article class="case-study case-study-featured reveal">
+            <div class="case-study-label"><span>01</span><p>DATA QUALITY<br />ORCHESTRATION</p></div>
+            <div class="case-study-body">
+              <div class="case-study-title"><h3>Airflow Data Quality DAGs</h3><a href="https://github.com/PavanKalyan-1718/airflow-data-quality-dags" target="_blank" rel="noreferrer">Read the repository <span>↗</span></a></div>
+              <p class="case-study-summary">A daily quality gate that prevents an unreliable orders partition from being treated as report-ready data.</p>
+              <div class="system-flow" aria-label="Airflow data quality system flow"><span>Logical date</span><i></i><span>PostgreSQL checks</span><i></i><span>Quality contract</span><i></i><span>Ready / fail</span></div>
+              <div class="case-study-grid">
+                <div><span>THE PROBLEM</span><p>Downstream reporting needs an explicit readiness signal instead of silently accepting duplicate, incomplete, or stale daily records.</p></div>
+                <div><span>DESIGN</span><p>The DAG passes Airflow's logical interval into parameterized PostgreSQL queries, making the checks deterministic for scheduled runs and backfills.</p></div>
+                <div><span>ENGINEERING</span><p>It checks duplicate order IDs, missing customer IDs, and stale ingest timestamps; a pure Python helper collects every failed contract into one actionable error.</p></div>
+                <div><span>RELIABILITY</span><p>Two controlled retries, five-minute delay, one active run, connection-ID based access, fast unit tests, and GitHub Actions model production delivery concerns.</p></div>
+              </div>
+            </div>
+          </article>
+          <article class="case-study reveal">
+            <div class="case-study-label"><span>02</span><p>PERFORMANCE<br />BENCHMARKING</p></div>
+            <div class="case-study-body">
+              <div class="case-study-title"><h3>Stream Codec Lab</h3><a href="https://github.com/PavanKalyan-1718/stream-codec-lab" target="_blank" rel="noreferrer">Read the repository <span>↗</span></a></div>
+              <p class="case-study-summary">A reproducible harness for comparing compression tradeoffs on event streams that behave more like production telemetry than a single synthetic blob.</p>
+              <div class="system-flow" aria-label="Compression benchmark system flow"><span>Deterministic NDJSON</span><i></i><span>Codec suite</span><i></i><span>Round-trip check</span><i></i><span>JSON report</span></div>
+              <div class="case-study-grid">
+                <div><span>THE QUESTION</span><p>Which compression choice balances size reduction and decode throughput for the actual shape of a data stream?</p></div>
+                <div><span>WORKLOADS</span><p>Seeded event generation models both repetitive dimensions and high-cardinality trace attributes, so results expose different compression behavior.</p></div>
+                <div><span>MEASUREMENT</span><p>The benchmark reports input and compressed bytes, compression ratio, compression throughput, and decompression throughput across configurable iterations.</p></div>
+                <div><span>GUARDRAIL</span><p>No result is reported until the codec has passed a lossless round-trip verification. Optional summaries surface the best ratio and fastest decode per workload.</p></div>
+              </div>
+            </div>
+          </article>
+          <article class="case-study reveal">
+            <div class="case-study-label"><span>03</span><p>SERVERLESS<br />BACKEND</p></div>
+            <div class="case-study-body">
+              <div class="case-study-title"><h3>AWS Serverless Order Pipeline</h3><a href="https://github.com/PavanKalyan-1718/aws-serverless-order-pipeline" target="_blank" rel="noreferrer">Read the repository <span>↗</span></a></div>
+              <p class="case-study-summary">A small, explicit backend boundary for taking an order request through validation, record creation, and fulfillment-state preparation.</p>
+              <div class="system-flow" aria-label="Serverless order system flow"><span>POST /orders</span><i></i><span>Validate payload</span><i></i><span>Create record</span><i></i><span>Fulfillment update</span></div>
+              <div class="case-study-grid">
+                <div><span>API CONTRACT</span><p>The create handler accepts an order payload, returns a clear 400 for missing customer or item data, and returns 201 with a structured accepted order.</p></div>
+                <div><span>DOMAIN MODEL</span><p>Order records receive a UUID, UTC creation timestamp, received status, line items, and a calculated total amount.</p></div>
+                <div><span>DEPLOYMENT SHAPE</span><p>The SAM template defines Python 3.11 functions, a POST endpoint, shared runtime limits, environment configuration, and a pay-per-request DynamoDB table.</p></div>
+                <div><span>PROCESSING BOUNDARY</span><p>A separate fulfillment handler converts an accepted order into a ready-for-fulfillment update, keeping intake and downstream processing concerns distinct.</p></div>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="impact section-shell">
