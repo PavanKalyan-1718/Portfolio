@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Selected systems case studies by Pavan Kalyan, Senior Software Engineer - Backend." />
+    <title>Pavan Kalyan | Engineering Case Studies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header"><a class="wordmark" href="index.html" aria-label="Pavan Kalyan home">PK<span>.</span></a><nav aria-label="Primary navigation"><a href="index.html#work">Focus</a><a href="#cases">Case studies</a><a href="index.html#experience">Experience</a></nav><a class="header-link" href="index.html">Back to portfolio</a></header>
+    <main>
+      <section class="case-hero section-shell">
+        <p class="eyebrow"><span></span> Engineering case studies</p>
+        <h1>Systems built for <em>failure, scale,</em> and real operators.</h1>
+        <p>Selected work across regulated data, research infrastructure, media intelligence, and enterprise platform delivery. Each story focuses on the engineering problem, the system design, and the operational habits that made the platform dependable.</p>
+        <p class="case-privacy-note">Client-sensitive details, internal baselines, and proprietary implementation specifics are intentionally omitted.</p>
+      </section>
+
+      <section class="experience-cases section-shell" id="cases">
+        <article class="experience-case reveal" id="current-platform">
+          <div class="experience-case-meta"><span>01</span><p>2026 - PRESENT<br />ENTERPRISE DATA PLATFORM</p></div>
+          <div class="experience-case-content"><p class="project-kicker">SENIOR SOFTWARE ENGINEER, CONTRACTOR / TECHMINDS GROUP</p><h2>Building a durable delivery path for regulated data products.</h2><p class="case-lede">A backend and orchestration focus: reusable ingestion patterns, reliable state management, governed quality controls, and integration surfaces that domain teams can depend on.</p><figure class="experience-diagram"><img src="assets/enterprise-data-mesh.svg" alt="Enterprise data product platform diagram showing ingestion, orchestration, governance, and data product serving." /></figure><div class="case-detail-grid"><div><span>THE CHALLENGE</span><p>Fragmented pipeline patterns and one-off operational logic make it difficult to scale reliable delivery across teams while preserving governance and auditability.</p></div><div><span>THE SYSTEM</span><p>Reusable batch and streaming ingestion, durable orchestration patterns, data-quality controls, lineage-aware governance, and documented data-product interfaces.</p></div><div><span>ENGINEERING FOCUS</span><p>Idempotent operations, explicit recovery paths, observability, CI/CD quality gates, and platform conventions that reduce custom code in delivery teams.</p></div><div><span>VALUE CREATED</span><p>A safer path from source systems to governed data products, designed for consistent operation and faster adoption by domain teams.</p></div></div></div>
+        </article>
+
+        <article class="experience-case reveal" id="research-platform">
+          <div class="experience-case-meta"><span>02</span><p>2023 - 2026<br />EDUCATION TECHNOLOGY</p></div>
+          <div class="experience-case-content"><p class="project-kicker">SENIOR SOFTWARE ENGINEER / NORTHEASTERN UNIVERSITY</p><h2>Making research workloads durable, reproducible, and observable.</h2><p class="case-lede">A production infrastructure platform for multi-stage research and model-evaluation workloads that needed stronger recovery, provenance, and access controls than ad-hoc clusters could provide.</p><figure class="experience-diagram"><img src="assets/research-orchestration-platform.svg" alt="Research workflow platform diagram showing workflow submission, Kubernetes orchestration, observability, and provenance." /></figure><div class="case-detail-grid"><div><span>THE CHALLENGE</span><p>Long-running workloads were vulnerable to failures, difficult to debug, and hard to reproduce. Sensitive datasets also needed meaningful isolation and controlled access.</p></div><div><span>THE SYSTEM</span><p>Kubernetes-based job orchestration with persistent state, checkpointing, retries, observability, and traceable workflow outputs.</p></div><div><span>RELIABILITY DESIGN</span><p>Defined recovery behavior, workload-level telemetry, runbooks, deployment standards, and operational SLOs so platform behavior was measurable and supportable.</p></div><div><span>IMPACT</span><p>Enabled multiple research groups to operate large-scale workloads with stronger recovery, provenance coverage, and a more predictable route from data to evaluation.</p></div></div></div>
+        </article>
+
+        <article class="experience-case reveal" id="media-platform">
+          <div class="experience-case-meta"><span>03</span><p>2023<br />MEDIA INFRASTRUCTURE</p></div>
+          <div class="experience-case-content"><p class="project-kicker">SOFTWARE ENGINEER, CONTRACTOR / ADOBE</p><h2>Making GPU-backed media processing observable and recoverable.</h2><p class="case-lede">A focused infrastructure engagement supporting media enrichment workloads where GPU resource scheduling, failure recovery, and asset traceability were essential to dependable discovery experiences.</p><figure class="experience-diagram"><img src="assets/media-gpu-platform.svg" alt="Media processing architecture diagram showing media intake, GPU fleet scheduling, observability, and discovery services." /></figure><div class="case-detail-grid"><div><span>THE CHALLENGE</span><p>Media processing jobs could fail under load with limited recovery signals. The operational cost was high and asset history was difficult to trace through enrichment workflows.</p></div><div><span>THE SYSTEM</span><p>Cloud-hosted Kubernetes control-plane and GPU worker patterns with task state, isolated compute resources, and distinct processing stages.</p></div><div><span>RELIABILITY DESIGN</span><p>Idempotent task execution, retry and recovery flows, job-level tracing, latency instrumentation, and alerts designed around service health and error budgets.</p></div><div><span>VALUE CREATED</span><p>Improved operational visibility and a more dependable processing path for media enrichment and downstream discovery capabilities.</p></div></div></div>
+        </article>
+
+        <article class="experience-case reveal" id="integration-platforms">
+          <div class="experience-case-meta"><span>04</span><p>2019 - 2021<br />REGULATED SYSTEMS</p></div>
+          <div class="experience-case-content"><p class="project-kicker">SOFTWARE ENGINEER / ACCENTURE</p><h2>Hardening high-volume integration services for regulated domains.</h2><p class="case-lede">Production data movement and integration work spanning privacy-sensitive healthcare and capital-markets contexts, with an emphasis on detection, recovery, and traceable operations.</p><figure class="experience-diagram"><img src="assets/regulated-data-platform.svg" alt="Regulated data pipeline diagram showing source systems, validation, recovery controls, and audited consumer data." /></figure><div class="case-detail-grid"><div><span>THE CHALLENGE</span><p>High-volume pipelines and integration services needed faster fault detection, stronger data-quality controls, and less manual intervention under regulatory constraints.</p></div><div><span>THE SYSTEM</span><p>Batch and near-real-time data flows supported by validation, retry policies, dead-letter handling, structured logs, monitoring, and deployment automation.</p></div><div><span>OPERATING MODEL</span><p>On-call collaboration, incident runbooks, and clear service ownership helped turn operational knowledge into repeatable recovery practices.</p></div><div><span>VALUE CREATED</span><p>More trustworthy downstream data flows and a stronger operational foundation for systems that needed both recoverability and auditability.</p></div></div></div>
+        </article>
+      </section>
+    </main>
+    <footer><span>&copy; <span id="year"></span> PAVAN KALYAN</span><a href="index.html">BACK TO PORTFOLIO</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
