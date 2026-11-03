@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Airflow data quality architecture</title>
+  <desc id="desc">A daily logical-date Airflow run queries PostgreSQL quality rules and either releases or blocks reporting data.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#274454" stroke-opacity=".38"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#d7ff5f"/></marker>
+  </defs>
+  <rect width="1200" height="520" fill="#071a26"/><rect width="1200" height="520" fill="url(#grid)"/>
+  <text x="54" y="63" fill="#9de6c6" font-family="monospace" font-size="18" letter-spacing="3">DAILY ORDERS QUALITY GATE</text>
+  <text x="54" y="95" fill="#dce8e2" font-family="sans-serif" font-size="17">A logical-date contract prevents unreliable partitions from reaching reporting.</text>
+  <g font-family="monospace" font-size="15" fill="#071a26">
+    <rect x="54" y="182" width="216" height="142" rx="8" fill="#d7ff5f"/><text x="78" y="224">01 / AIRFLOW</text><text x="78" y="255">logical date</text><text x="78" y="281">schedule + backfill</text>
+    <rect x="354" y="182" width="216" height="142" rx="8" fill="#9de6c6"/><text x="378" y="224">02 / POSTGRES</text><text x="378" y="255">partition queries</text><text x="378" y="281">parameterized SQL</text>
+    <rect x="654" y="182" width="216" height="142" rx="8" fill="#ffa56c"/><text x="678" y="224">03 / CONTRACTS</text><text x="678" y="255">duplicates</text><text x="678" y="281">nulls + freshness</text>
+    <rect x="954" y="150" width="192" height="92" rx="8" fill="#dce8e2"/><text x="978" y="192">PASS</text><text x="978" y="218">report ready</text>
+    <rect x="954" y="266" width="192" height="92" rx="8" fill="#e0532c"/><text x="978" y="308">FAIL</text><text x="978" y="334">actionable error</text>
+  </g>
+  <g stroke="#d7ff5f" stroke-width="4" fill="none" marker-end="url(#arrow)"><path d="M270 253H342"/><path d="M570 253H642"/><path d="M870 230H930Q944 230 954 205"/><path d="M870 276H930Q944 276 954 312"/></g>
+  <text x="54" y="442" fill="#dce8e2" font-family="monospace" font-size="14">RETRY: 2 ATTEMPTS  /  DELAY: 5 MINUTES  /  MAX ACTIVE RUNS: 1  /  TESTS + CI</text>
+</svg>

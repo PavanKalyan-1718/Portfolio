@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Stream compression benchmark architecture</title>
+  <desc id="desc">Deterministic NDJSON workloads are sent to a codec suite, verified for lossless round trips, then measured and summarized as JSON.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#b6cbc1" stroke-opacity=".45"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#1e6654"/></marker>
+  </defs>
+  <rect width="1200" height="520" fill="#dce8e2"/><rect width="1200" height="520" fill="url(#grid)"/>
+  <text x="54" y="63" fill="#1e6654" font-family="monospace" font-size="18" letter-spacing="3">STREAM CODEC LAB</text>
+  <text x="54" y="95" fill="#3a5059" font-family="sans-serif" font-size="17">Compare compression tradeoffs using reproducible event-stream shapes.</text>
+  <g font-family="monospace" font-size="15" fill="#071a26">
+    <rect x="54" y="182" width="220" height="142" rx="8" fill="#071a26"/><text x="78" y="224" fill="#d7ff5f">01 / GENERATE</text><text x="78" y="255" fill="#dce8e2">seeded NDJSON</text><text x="78" y="281" fill="#dce8e2">two workloads</text>
+    <rect x="354" y="182" width="220" height="142" rx="8" fill="#9de6c6"/><text x="378" y="224">02 / COMPRESS</text><text x="378" y="255">codec suite</text><text x="378" y="281">configurable runs</text>
+    <rect x="654" y="182" width="220" height="142" rx="8" fill="#ffa56c"/><text x="678" y="224">03 / VERIFY</text><text x="678" y="255">lossless round trip</text><text x="678" y="281">before metrics</text>
+    <rect x="954" y="182" width="192" height="142" rx="8" fill="#071a26"/><text x="978" y="224" fill="#d7ff5f">04 / REPORT</text><text x="978" y="255" fill="#dce8e2">ratio + throughput</text><text x="978" y="281" fill="#dce8e2">JSON summary</text>
+  </g>
+  <g stroke="#1e6654" stroke-width="4" fill="none" marker-end="url(#arrow)"><path d="M274 253H342"/><path d="M574 253H642"/><path d="M874 253H942"/></g>
+  <text x="54" y="442" fill="#3a5059" font-family="monospace" font-size="14">WORKLOADS: REPETITIVE + HIGH-CARDINALITY  /  METRICS: SIZE, RATIO, ENCODE, DECODE</text>
+</svg>

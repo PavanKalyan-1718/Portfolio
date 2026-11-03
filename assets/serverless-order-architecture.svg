@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Serverless order pipeline architecture</title>
+  <desc id="desc">An order API validates a request, builds an order record, and hands it to a separate fulfillment processing boundary.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#f2c1a8" stroke-opacity=".42"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#071a26"/></marker>
+  </defs>
+  <rect width="1200" height="520" fill="#ffa56c"/><rect width="1200" height="520" fill="url(#grid)"/>
+  <text x="54" y="63" fill="#071a26" font-family="monospace" font-size="18" letter-spacing="3">AWS SERVERLESS ORDER PIPELINE</text>
+  <text x="54" y="95" fill="#3a3732" font-family="sans-serif" font-size="17">An explicit intake contract keeps order creation and fulfillment preparation separate.</text>
+  <g font-family="monospace" font-size="15" fill="#071a26">
+    <rect x="54" y="182" width="216" height="142" rx="8" fill="#dce8e2"/><text x="78" y="224">01 / API GATEWAY</text><text x="78" y="255">POST /orders</text><text x="78" y="281">request payload</text>
+    <rect x="354" y="182" width="216" height="142" rx="8" fill="#071a26"/><text x="378" y="224" fill="#d7ff5f">02 / LAMBDA</text><text x="378" y="255" fill="#dce8e2">validate inputs</text><text x="378" y="281" fill="#dce8e2">create record</text>
+    <rect x="654" y="182" width="216" height="142" rx="8" fill="#9de6c6"/><text x="678" y="224">03 / ORDER MODEL</text><text x="678" y="255">UUID + UTC time</text><text x="678" y="281">total + RECEIVED</text>
+    <rect x="954" y="182" width="192" height="142" rx="8" fill="#dce8e2"/><text x="978" y="224">04 / PROCESS</text><text x="978" y="255">fulfillment update</text><text x="978" y="281">READY state</text>
+  </g>
+  <g stroke="#071a26" stroke-width="4" fill="none" marker-end="url(#arrow)"><path d="M270 253H342"/><path d="M570 253H642"/><path d="M870 253H942"/></g>
+  <text x="54" y="442" fill="#3a3732" font-family="monospace" font-size="14">SAM: PYTHON 3.11  /  256 MB  /  15 SECOND TIMEOUT  /  PAY-PER-REQUEST DATA STORE</text>
+</svg>

@@ -106,7 +106,7 @@
             <div class="case-study-body">
               <div class="case-study-title"><h3>Airflow Data Quality DAGs</h3><a href="https://github.com/PavanKalyan-1718/airflow-data-quality-dags" target="_blank" rel="noreferrer">Read the repository <span>↗</span></a></div>
               <p class="case-study-summary">A daily quality gate that prevents an unreliable orders partition from being treated as report-ready data.</p>
-              <div class="system-flow" aria-label="Airflow data quality system flow"><span>Logical date</span><i></i><span>PostgreSQL checks</span><i></i><span>Quality contract</span><i></i><span>Ready / fail</span></div>
+              <figure class="case-study-diagram"><img src="assets/airflow-quality-architecture.svg" alt="Architecture diagram showing Airflow logical date, PostgreSQL checks, data-quality contracts, and ready or fail outcomes." /></figure>
               <div class="case-study-grid">
                 <div><span>THE PROBLEM</span><p>Downstream reporting needs an explicit readiness signal instead of silently accepting duplicate, incomplete, or stale daily records.</p></div>
                 <div><span>DESIGN</span><p>The DAG passes Airflow's logical interval into parameterized PostgreSQL queries, making the checks deterministic for scheduled runs and backfills.</p></div>
@@ -120,7 +120,7 @@
             <div class="case-study-body">
               <div class="case-study-title"><h3>Stream Codec Lab</h3><a href="https://github.com/PavanKalyan-1718/stream-codec-lab" target="_blank" rel="noreferrer">Read the repository <span>↗</span></a></div>
               <p class="case-study-summary">A reproducible harness for comparing compression tradeoffs on event streams that behave more like production telemetry than a single synthetic blob.</p>
-              <div class="system-flow" aria-label="Compression benchmark system flow"><span>Deterministic NDJSON</span><i></i><span>Codec suite</span><i></i><span>Round-trip check</span><i></i><span>JSON report</span></div>
+              <figure class="case-study-diagram"><img src="assets/codec-benchmark-architecture.svg" alt="Architecture diagram showing deterministic NDJSON workloads, codec execution, lossless round-trip verification, and JSON reporting." /></figure>
               <div class="case-study-grid">
                 <div><span>THE QUESTION</span><p>Which compression choice balances size reduction and decode throughput for the actual shape of a data stream?</p></div>
                 <div><span>WORKLOADS</span><p>Seeded event generation models both repetitive dimensions and high-cardinality trace attributes, so results expose different compression behavior.</p></div>
@@ -134,7 +134,7 @@
             <div class="case-study-body">
               <div class="case-study-title"><h3>AWS Serverless Order Pipeline</h3><a href="https://github.com/PavanKalyan-1718/aws-serverless-order-pipeline" target="_blank" rel="noreferrer">Read the repository <span>↗</span></a></div>
               <p class="case-study-summary">A small, explicit backend boundary for taking an order request through validation, record creation, and fulfillment-state preparation.</p>
-              <div class="system-flow" aria-label="Serverless order system flow"><span>POST /orders</span><i></i><span>Validate payload</span><i></i><span>Create record</span><i></i><span>Fulfillment update</span></div>
+              <figure class="case-study-diagram"><img src="assets/serverless-order-architecture.svg" alt="Architecture diagram showing an order API request, Lambda validation, order record creation, and fulfillment processing." /></figure>
               <div class="case-study-grid">
                 <div><span>API CONTRACT</span><p>The create handler accepts an order payload, returns a clear 400 for missing customer or item data, and returns 201 with a structured accepted order.</p></div>
                 <div><span>DOMAIN MODEL</span><p>Order records receive a UUID, UTC creation timestamp, received status, line items, and a calculated total amount.</p></div>
